@@ -1,8 +1,10 @@
 #include <stdio.h>
 int main() {
-	
+int choice;
+int cart_total=0;
+int cart_item=0;
 
-int choice;    
+    
 do{	    
 printf("\n========================================= WELCOME TO BEAST RESTAURANT========================================\n1. View Food Menu\n2. Order Food\n3. View Cart\n4. Remove Item\n5. Generate Bill\n6. Exit\nEnter Choice:");
 scanf("%d",&choice);
@@ -97,15 +99,28 @@ printf("Total Price: Rs.%d\n", totalprice);
  												price=350;
  												totalprice=price*quantity;
  												printf("Price: Rs.%d\n", price);
-printf("Quantity:%d\n", quantity);
-printf("Total Price: Rs.%d\n", totalprice);
+                                                printf("Quantity:%d\n", quantity);
+                                                printf("Total Price: Rs.%d\n", totalprice);
  												break;
  												default:
  													printf("Invalid Food Choice\n");
 	 }
+	 
+	 cart_total=cart_total+totalprice;
+	 cart_item=cart_item+quantity;
+	 
  	break;
  case 3:
-    printf("View Cart Selected\n");
+ 	printf("\n===== YOUR CART =====\n");
+ 	if (cart_item==0){
+ 		printf("Your Cart Is Empty ! Please order something First.\n");
+    }
+    else{
+    	printf("Total Items in Cart: %d\n",cart_item);
+    	printf("Current Subtotal: RS:%d\n",cart_total);
+	}
+	printf("===========================================\n");
+	 
     break;
  case 4:
     printf("Remove Item Selected\n");
