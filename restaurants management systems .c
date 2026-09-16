@@ -125,9 +125,30 @@ printf("Total Price: Rs.%d\n", totalprice);
  case 4:
     printf("Remove Item Selected\n");
     break;
- case 5:
+ case 5:{
+ 	float tax;
+ 	float final_bill;
     printf("Generate Bill Selected\n");
-    break;
+    if(cart_item==0){
+    	printf("Cart Is Empty !");
+	}
+	else
+	{
+	tax=cart_total*0.05;
+	final_bill=cart_total+tax;
+	    printf("\n===================================\n");
+   printf("       BEAST RESTAURANT INVOICE      \n");
+    printf("===================================\n");
+    printf("Total Items:      %d\n", cart_item);
+    printf("Subtotal:         Rs.%d\n", cart_total);
+        printf("GST Tax (5%%):     Rs.%.2f\n", tax);
+    printf("-----------------------------------\n");
+    printf("TOTAL PAYABLE:    Rs.%.2f\n", final_bill);
+        printf("===================================\n");
+    
+
+	}
+    break;}
  case 6:
     printf("Thank You! Visit Again.\n");
     break;
