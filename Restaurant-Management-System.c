@@ -3,6 +3,7 @@ int main() {
 int choice;
 int cart_total=0;
 int cart_item=0;
+int cart_quantities[10]={0};
 
     
 do{	    
@@ -108,7 +109,7 @@ printf("Total Price: Rs.%d\n", totalprice);
 	 
 	 cart_total=cart_total+totalprice;
 	 cart_item=cart_item+quantity;
-	 
+	 cart_quantities[FoodChoice - 1]= cart_quantities[FoodChoice - 1] + quantity;
  	break;
  case 3:
  	printf("\n===== YOUR CART =====\n");
@@ -116,6 +117,14 @@ printf("Total Price: Rs.%d\n", totalprice);
  		printf("Your Cart Is Empty ! Please order something First.\n");
     }
     else{
+    	 printf("\n--- Ordered Items List ---\n");
+    	 int i;
+        for(i = 0; i < 10; i++) {
+            if(cart_quantities[i] > 0) {
+                printf("Item Number [%d] -> Quantity: %d\n", i + 1, cart_quantities[i]);
+            }
+        }
+        printf("\n--------------------------\n");
     	printf("Total Items in Cart: %d\n",cart_item);
     	printf("Current Subtotal: RS:%d\n",cart_total);
 	}
@@ -125,6 +134,10 @@ printf("Total Price: Rs.%d\n", totalprice);
  case 4:{
    cart_total=0;
    cart_item=0;
+   int j;
+   for(j=0;j<10;j++){
+   	cart_quantities[j]=0;
+   }
 printf("\nCart has beeen reset succesfully!\n");
  	
     break;
