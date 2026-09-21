@@ -4,7 +4,7 @@ int choice;
 int cart_total=0;
 int cart_item=0;
 int cart_quantities[10]={0};
-
+char menu_names[10][20]={"Burger","Pizza","Zinger Burger","Fries","Shawarma","Sandwich","Pasta","Coffee","Cold Drink","Ice Cream"};
     
 do{	    
 printf("\n========================================= WELCOME TO BEAST RESTAURANT========================================\n1. View Food Menu\n2. Order Food\n3. View Cart\n4. Remove Item\n5. Generate Bill\n6. Exit\nEnter Choice:");
@@ -121,7 +121,7 @@ printf("Total Price: Rs.%d\n", totalprice);
     	 int i;
         for(i = 0; i < 10; i++) {
             if(cart_quantities[i] > 0) {
-                printf("Item Number [%d] -> Quantity: %d\n", i + 1, cart_quantities[i]);
+                printf("%s -> Quantity: %d\n",menu_names[i], cart_quantities[i]);
             }
         }
         printf("\n--------------------------\n");
@@ -155,6 +155,12 @@ printf("\nCart has beeen reset succesfully!\n");
 	    printf("\n===================================\n");
    printf("       BEAST RESTAURANT INVOICE      \n");
     printf("===================================\n");
+    int k;
+    for(k=0;k<10;k++){
+    	if(cart_quantities[k]>0){
+    		printf("%s --> %d\n",menu_names[k],cart_quantities[k]);
+		}
+	}
     printf("Total Items:      %d\n", cart_item);
     printf("Subtotal:         Rs.%d\n", cart_total);
         printf("GST Tax (5%%):     Rs.%.2f\n", tax);
